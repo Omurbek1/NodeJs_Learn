@@ -20,8 +20,14 @@
 const http = require('http');
 
 http.createServer(function (request, response) {
-    response.setHeader("UserId", 12);
-    response.setHeader("Content-Type", "text/html");
-    response.write("<h2>Hello World</h2>")
+    response.setHeader("Content-Type", "text/html")
+    response.write("<DOCTYPE html>");
+    response.write("<html>")
+    response.write("<head>")
+    response.write("<title>Hello Node Js</title>")
+    response.write("<meta charset=\"utf-8\">")
+    response.write("</head")
+    response.write("<body><h2>Салам</h2></body>")
+    response.write("</html>")
     response.end()
 }).listen(3000)
