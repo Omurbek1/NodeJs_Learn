@@ -1,5 +1,4 @@
-const os = require('os');
-const greeting = require("./greeting")
-let userName = os.userInfo().username;
-console.log(userName)
-console.log(greeting.getMessage(userName))
+const User = require("./user")
+
+let biz = new User('Omurbek', 23)
+biz.sayHi();
