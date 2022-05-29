@@ -8,5 +8,5 @@ module.exports.getMessage = function (name) {
     else if (hour > 10)
         return "Кутман кун," + name;
     else
-        return "Кутман тан,"+name
+        return "Кутман тан," + name
 }
