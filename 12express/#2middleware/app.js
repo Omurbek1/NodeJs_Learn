@@ -11,9 +11,13 @@ app.use(function (request, response, next) {
     next();
 });
 
-app.use(function (request, response, next) {
+app.use("/about", function (request, response, next) {
     console.log("Экинчи орток программа middleware!");
-    next();
+    response.send("About Middleware!")
+});
+app.use("/contact", function (request, response, next) {
+    console.log("учунчу орток программа middleware!");
+    response.send("Контакт Middleware!")
 });
 app.use("/", function (request, response) {
     console.log("Route /");
