@@ -2,16 +2,10 @@ const express = require('express');
 const app = express();
 
 app.use(function (req, res) {
-    res.send(`<DOCTYPE html>
-    <html>
-    <head>
-    <title>Главная</title>
-    <meta charset="utf-8"
-    </head>
-    <body>
-    <h1>Главная</h1>
-    <h1>Салам,экспресс</h1>
-    </body>
-    </html>`)
+    res.sendFile(__dirname + "/index.html");
+});
+
+app.use("/home/foo", function (req, res) {
+    res.sendStatus(404).send(`<h1>Ресурс не найден!</h1>`);
 });
 app.listen(3000)
