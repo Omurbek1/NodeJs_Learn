@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+</head>
+<body>
+    <h1>Маалыматты киргизиниз</h1>
+    <form name="registerForm">
+        <label>Аты</label>
+        <input type="text" name="userName"/></br></br>
+    <label>Жашы</label>
+        <input type="number" name="UserAge"/></br></br>
+        <button type="submit" id="submit">Жонотуу</button>
+    </form>
+    <script>
+        document.getElementById("submit").addEventListener("click",function(e){
+            e.preventDefault();
+
+            // dake data
+            let registerForm=document.forms["registerForm"]
+            let userName=registerForm.elements["userName"].value;
+            let userAge=registerForm.elements["UserAge"].value;
+
+            let user=JSON.stringify({userName:userName,userAge:userAge})
+            let request=new XMLHttpRequest()
+
+            request.open("POST","/user",true);
+            request.setRequestHeader("Content-Type","application/json")
+            request.addEventListener("load",function(){
+                let recievedUser=JSON.parse(request.response);
+                console.log(recievedUser.userName,"-",recievedUser.userAge);
+            });
+            request.send(user)
+        })
+    </script>
+    
+</body>
+</html>
