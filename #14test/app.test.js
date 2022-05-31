@@ -19,5 +19,4 @@ it("shoul async multipay two numbers", function (done) {
         }
         done()
     })
-
 });
