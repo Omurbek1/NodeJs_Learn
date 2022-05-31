@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{%=title%}</title>
+  </head>
+  <body>
+    <h1>{%=title %} ejs</h1>
+
+    <% if(emailsVisible) {%>
+        <h3>Email</h3>
+        <ul>
+            <% for(var i=0;i<email.length;i++){%>
+                <li><%=emails[i]%></li>
+            <%}%>
+        </ul>
+        <%}else{%>
+        <h3>email aggree</h3>
+    <%}%>
+    <p>phone : <%=phone%></p>
+  </body>
+</html>
