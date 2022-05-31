@@ -9,6 +9,7 @@ it("shoul  add two numbers", function () {
         throw new Error(`Expected ${expectedResult} but got${result}`)
     }
 });
+
 it("shoul async multipay two numbers", function (done) {
     var experedResult = 12;
     operations.multiplyAcync(4, 3, function (result) {
