@@ -6,3 +6,10 @@ it("shoul return hello", function (done) {
         .expect("hello test")
         .end(done)
 })
+
+it("should return notFound with status 404", function (done) {
+    request(app)
+        .get("/error")
+        .expect(404)
+        .end("Notfound")
+})
