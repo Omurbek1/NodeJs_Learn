@@ -23,6 +23,7 @@ router.get('/dashboard', (req, res) => {
     }
 })
 
+
 // router for logout
 router.get('/logout', (req, res) => {
     req.session.destroy(function (err) {
