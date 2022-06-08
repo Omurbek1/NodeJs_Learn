@@ -22,6 +22,8 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }))
+
+app.use('/route',router)
 // HOME route
 app.get('/', (req, res) => {
     res.render('base', { titl: "LoginSystem" })
