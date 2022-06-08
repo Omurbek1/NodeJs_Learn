@@ -14,8 +14,6 @@ router.post("/login", (req, res) => {
         res.end("Invalid username or password")
     }
 })
-
-
 // Route for dashbaord
 router.get('/dashboard', (req, res) => {
     if (req.session.user) {
