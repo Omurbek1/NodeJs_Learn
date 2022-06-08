@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body{
+    font-family: 'Open Sans' ,sans-serif;
+}
+.center-div{
+    margin-top: 10%;
+}
+
+
+form{
+    padding: 0 3em;
+}
+
+#login.title{
+    font-size: 8em;
+}
