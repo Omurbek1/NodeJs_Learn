@@ -15,6 +15,7 @@ pen.forward(50)
 pen.setpos(-60, 100)
 pen.end_fill()
 def txt():
+    
     pen.up()
     pen.setpos(-60, 100)
     pen.color('red')
