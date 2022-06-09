@@ -36,7 +36,7 @@ app.post('/register', (req, res) => {
         password: password
     });
     newUser.save((err) => {
-        err ? console.log(err) : res.send('Successfull');
+        err ? console.log(err) : res.send('Successfull Created ');
     })
 
 })
@@ -44,6 +44,7 @@ app.post('/register', (req, res) => {
 app.post('/login', (req, res) => {
 
 })
+
 
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
