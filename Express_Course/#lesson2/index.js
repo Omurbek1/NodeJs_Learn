@@ -3,6 +3,7 @@ const path = require('path');
 const app = express()
 
 app.set('view engine', 'ejs')
+app.set('views', path.resolve(__dirname, 'template'));
 console.log(app.get('views'));
 const { requestTime, logger } = require('./middlewares.js');
 
@@ -11,22 +12,12 @@ app.use(requestTime)
 app.use(logger)
 
 
-// app.get('/', (req, res) => {
-//     // res.send('<h1>Hello  sExpress</h1>')
-//     res.sendFile(path.resolve(__dirname, 'static', 'index.html'))
-// })
-
-// app.get('/contact', (req, res) => {
-//     // res.send('<h1>Hello  sExpress</h1>')
-//     res.sendFile(path.resolve(__dirname, 'static', 'contact.html'))
-// })
-
-// Бул бетти кочуруу
-// app.get('/download', (req, res) => {
-//     console.log(req.requestTime);
-//     console.log(req.logger);
-//     res.download(path.resolve(__dirname, 'static', 'index.html'))
-// })
+app.get('/', (req, res) => {
+    res.render('index')
+})
+app.get('/about', (req, res) => {
+    res.render('about')
+})
 
 
 const PORT = process.env.PORT || 3000;
