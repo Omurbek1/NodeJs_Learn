@@ -13,15 +13,12 @@ app.use(logger)
 
 
 app.get('/', (req, res) => {
-    res.render('index')
+    res.render('index',{title:"Main Page"})
 })
 app.get('/about', (req, res) => {
-    res.render('about')
+    res.render('about',{title:"About Page"})
 })
-
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`server has been started on port ${PORT}`);
 })
-
-
