@@ -1,9 +1,12 @@
 const express = require('express');
 const path = require('path');
 const app = express()
-
+const { requestTime, logger } = require('./middlewares.js');
 
 app.use(express.static(path.resolve(__dirname, 'static')))
+app.use(requestTime)
+app.use(logger)
+
 
 // app.get('/', (req, res) => {
 //     // res.send('<h1>Hello  sExpress</h1>')
@@ -16,10 +19,11 @@ app.use(express.static(path.resolve(__dirname, 'static')))
 // })
 
 // Бул бетти кочуруу
-// app.get('/download', (req, res) => {
-
-//     res.download(path.resolve(__dirname, 'static', 'index.html'))
-// })
+app.get('/download', (req, res) => {
+    console.log(req.requestTime);
+    console.log(req.logger);
+    res.download(path.resolve(__dirname, 'static', 'index.html'))
+})
 
 
 const PORT = process.env.PORT || 3000;

@@ -1,8 +1,13 @@
-export function requestTime(req, res, next) { 
+const colors = require('colors');
+function requestTime(req, res, next) {
     req.requestTime = Date.now()
-    
+
     next()
-}
-export function logger(req, res, next) {
-    
-}
+};
+
+function logger(req, res, next) {
+    console.log(colors.bgGreen.black(`Req.time:${req.requestTime}`));
+    next()
+};
+module.exports.requestTime = requestTime
+module.exports.logger=logger
