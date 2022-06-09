@@ -13,10 +13,10 @@ app.use(logger)
 
 
 app.get('/', (req, res) => {
-    res.render('index',{title:"Main Page"})
+    res.render('index', { title: "Main Page", active: 'main' })
 })
 app.get('/about', (req, res) => {
-    res.render('about',{title:"About Page"})
+    res.render('about', { title: "About Page", active: 'about' })
 })
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
