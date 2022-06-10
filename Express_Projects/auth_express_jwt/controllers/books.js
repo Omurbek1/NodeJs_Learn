@@ -7,5 +7,7 @@ exports.findBooks = async (req, res) => {
 }
 
 exports.createBook = async (req, res) => {
-
+    const book = new Book(req.body);
+    await book.save()
+    res.send({ data: book })
 }
