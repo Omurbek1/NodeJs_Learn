@@ -1,22 +1,21 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const authRouter = require('./authRouter')
 
+mongoose.connect(`mongodb+srv://admin:admin@cluster0.kt7z4.mongodb.net/auth_roles`, {
+    useNewUrlParser: true
+})
+    .then(() => {
+        const app = express()
 
-const PORT = process.env.PORT || 5000
-const app = express()
+        const PORT = process.env.PORT || 5000
+        app.get('/', (req, res) => {
+            res.send('<h1>Updated </h1>')
+        })
 
-
-app.use(express.json())
-app.use('/auth', authRouter)
-const start = async () => {
-    try {
-        await mongoose.connect(`mongodb + srv://oma:oma52280930@cluster0.kt7z4.mongodb.net/auth_roles?retryWrites=true&w=majority`)
-        app.listen(PORT, () => console.log(`Сервер ${PORT} да иштеп жатат!`))
-    } catch (e) {
-        console.log(e);
-
-    }
-}
-
-start()
+        app.listen(PORT, () => {
+            console.log(`Сервер ${PORT} да иштеп жатат!!! Connection database`);
+        })
+    })
+    .catch(() => {
+        console.log('Database connection failed');
+    })

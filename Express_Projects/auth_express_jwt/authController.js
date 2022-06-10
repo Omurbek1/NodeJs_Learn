@@ -17,7 +17,7 @@ class authController {
     }
     async getUsers(req, res) {
         try {
-
+            res.json('Server work')
         } catch (error) {
             console.log(error);
 
