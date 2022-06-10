@@ -1,9 +1,11 @@
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb+srv://admin:admin@cluster0.kt7z4.mongodb.net/auth_roles',
+mongoose.connect(process.env.MONGODB_URL,
     {
-        dbName: 'auth_roles',
-        useNewUrlParser: true
+        dbName: process.env.DB_NAME,
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+
     },
 )
     .then(() => {
@@ -22,4 +24,9 @@ mongoose.connection.on('error', (err) => {
 
 mongoose.connection.on('disconnected', () => {
     console.log('Mongoose connection is disconnected!!');
+})
+
+process.on('SIGINT', async () => {
+    await mongoose.connection.close();
+    process.exit(0)
 })
