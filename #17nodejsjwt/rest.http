@@ -8,7 +8,7 @@ POST   http://localhost:3000/auth/register
 Content-Type: application/json
 
 {
-    "email":"adsmina@gmail.com",
+    "email":"adsmasinassda@gmail.com",
     "password":"112234356"
 }
 ###Refresh token Route
