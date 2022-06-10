@@ -8,7 +8,7 @@ module.exports = {
             const payload = {
 
             }
-            const secret = "some super secret"
+            const secret =process.env.ACCESS_TOKEN_SECRET
             const options = {
                 expiresIn: "1d",
                 issuer: "super.com",
