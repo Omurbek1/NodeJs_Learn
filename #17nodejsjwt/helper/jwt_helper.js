@@ -6,11 +6,13 @@ module.exports = {
     signAccessToken: (userId) => {
         return new Promise((resolve, rejected) => {
             const payload = {
-                name: "your tssry"
+
             }
             const secret = "some super secret"
             const options = {
-                
+                expiresIn: "1d",
+                issuer: "super.com",
+                audience: userId
             }
             JWT.sign(payload, secret, options, (err, token) => {
                 if (err) rejected(err)
