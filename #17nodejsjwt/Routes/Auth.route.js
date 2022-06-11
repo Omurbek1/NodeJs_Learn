@@ -4,6 +4,7 @@ const createError = require('http-errors')
 const User = require('../models/User.model')
 const { authSchema } = require('../helper/validation.schema')
 const { signAccessToken } = require('../helper/jwt_helper')
+
 router.post('/register', async (req, res, next) => {
     console.log(req.body);
     try {
@@ -27,7 +28,8 @@ router.post('/register', async (req, res, next) => {
 
 router.post('/login', async (req, res, next) => {
     try {
-
+        const result = await authSchema.validateAsync(req.body)
+        res.send(result)
     } catch (err) {
         next(err)
     }
