@@ -26,6 +26,11 @@ router.post('/register', async (req, res, next) => {
 })
 
 router.post('/login', async (req, res, next) => {
+    try {
+
+    } catch (err) {
+        next(err)
+    }
     res.send("Login route")
 })
 
