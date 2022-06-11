@@ -29,12 +29,17 @@ router.post('/register', async (req, res, next) => {
 router.post('/login', async (req, res, next) => {
     try {
         const result = await authSchema.validateAsync(req.body)
-        const user=await User.findOne({email:result.email})
+        const user = await User.findOne({ email: result.email })
 
-        if(!user) throw createError.NotFound('User Not register')
-        res.send(result)
+        if (!user) throw createError.NotFound('User Not register')
+        const isMatch = await user.isValidPassword(result.password)
+        if (!isMatch) throw createError.Unauthorized('Username/password not valid')
+
+        const accessToken = await signAccessToken(user.id)
+
+        res.send({ accessToken })
     } catch (err) {
-        if(err.isJoi===true) return next(createError.BadRequest('iNVALID USERnAME OR pASSWORD'))
+        if (err.isJoi === true) return next(createError.BadRequest('iNVALID USERnAME OR pASSWORD'))
         next(err)
     }
     res.send("Login route")
