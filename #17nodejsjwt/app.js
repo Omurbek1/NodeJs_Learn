@@ -14,6 +14,7 @@ app.use(express.urlencoded({ extended: true }))
 
 
 app.get('/', async (req, res, next) => {
+    console.log(req.headers('authorization'));
     res.send("Hello Express")
 
 })
