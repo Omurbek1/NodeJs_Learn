@@ -5,8 +5,8 @@ POST   http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
-     "email":"adsSmsa@gmail.com",
-      "password":"126"
+     "email":"adSa@gmail.com",
+      "password":"161231"
 }
 
 ###rEGISTER Route

@@ -29,8 +29,12 @@ router.post('/register', async (req, res, next) => {
 router.post('/login', async (req, res, next) => {
     try {
         const result = await authSchema.validateAsync(req.body)
+        const user=await User.findOne({email:result.email})
+
+        if(!user) throw createError.NotFound('User Not register')
         res.send(result)
     } catch (err) {
+        if(err.isJoi===true) return next(createError.BadRequest('iNVALID USERnAME OR pASSWORD'))
         next(err)
     }
     res.send("Login route")
