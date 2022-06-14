@@ -33,6 +33,7 @@ router
 // })
 
 
+
 router.param("id", (req, res, next, id) => {
     console.log(id);
     next()
