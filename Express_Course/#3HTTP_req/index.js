@@ -1,12 +1,14 @@
 const express = require('express');
-
 const app = express()
+
 const PORT = process.env.PORT || 5000
+app.set('view engine', 'ejs')
 app.get('/', function (req, res) {
-    res.send('Hello')
+    res.render('index', { title: "Omurbek" })
 })
 
+
 app.get('/about', function (req, res) {
-    res.send('<h1>About Page</h1>')
+    res.sendFile(path.join(__dirname, 'views', 'about.html'))
 })
 app.listen(PORT, console.log(`Server running on port ${PORT}`))
