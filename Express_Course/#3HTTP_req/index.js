@@ -9,6 +9,6 @@ app.get('/', function (req, res) {
 
 
 app.get('/about', function (req, res) {
-    res.sendFile(path.join(__dirname, 'views', 'about.html'))
+    res.render('about')
 })
 app.listen(PORT, console.log(`Server running on port ${PORT}`))
