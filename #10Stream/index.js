@@ -11,5 +11,10 @@ readStream.on('data', (chunk) => {
 })
 
 
-// Эми биз жаза ала турган Stream жазабыз!
+// Эми биз жаза ала турган Stream жазабыз! Бул бизге жаны файлды тузууго жардам берет
+// Бул менен биз мурунку файлдагы данныйды жаны файлга кочуруп алдык
+const writeAtream = fs.createWriteStream('./doc/info_two_stream.txt')
 
+readStream.on('data', (chunk) => {
+    writeAtream.write(chunk)
+})
