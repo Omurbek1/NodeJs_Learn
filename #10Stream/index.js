@@ -11,6 +11,8 @@ const readStream = fs.createReadStream('./doc/info.txt')
 // })
 
 
+
+
 // Эми биз жаза ала турган Stream жазабыз! Бул бизге жаны файлды тузууго жардам берет
 // Бул менен биз мурунку файлдагы данныйды жаны файлга кочуруп алдык
 const writeAtream = fs.createWriteStream('./doc/info_two_stream.txt')
