@@ -11,7 +11,5 @@ function middleLogger(req, res, next) {
     console.log(req.originalUrl);
     next();
 }
-
-
 app.listen(PORT, console.log(`Server running ${PORT}`))
 
